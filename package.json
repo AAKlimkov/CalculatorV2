@@ -9,8 +9,9 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "webpack serve",
-    "prepare": "husky install"
+    "dev": "webpack serve",
+    "prepare": "husky install",
+    "fix": "npx eslint src/ --fix"
   },
   "keywords": [
     "basic",
