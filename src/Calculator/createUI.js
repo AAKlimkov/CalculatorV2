@@ -30,7 +30,6 @@ export default function createCalculator() {
     { text: ".", data: ["role", "decimal"], class: "btn-decimal" },
     { text: "0", data: ["role", "number"], class: "btn-number" },
     { text: "+/-", data: ["role", "sign-change"], class: "btn-sign" },
-    // { text: "√", data: ["role", "sqrt"], class: "btn-sqrt" },
     { text: "=", data: ["role", "equals"], class: "btn-equals" },
   ];
 
