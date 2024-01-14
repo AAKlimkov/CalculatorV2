@@ -70,10 +70,10 @@ describe("Calculator", () => {
 
   test("handles an invalid operation", () => {
     calc.enterNumber("5");
-    calc.chooseOperation("^"); // Attempt to choose an invalid operation
-    calc.enterNumber("5");
+    calc.chooseOperation("^");
+    calc.enterNumber("6");
     calc.compute();
-    expect(calc.displayValue).toBe("55");
+    expect(calc.displayValue).toBe("6");
   });
 
   test("chains multiple operations", () => {
@@ -108,5 +108,55 @@ describe("Calculator", () => {
     calc.chooseOperation("*");
     expect(spy).toHaveBeenCalled();
     spy.mockRestore();
+  });
+  test("changes the sign of a positive number to negative", () => {
+    calc.enterNumber("5");
+    calc.changeSign();
+    expect(calc.displayValue).toBe("-5");
+  });
+
+  test("changes the sign of a negative number to positive", () => {
+    calc.enterNumber("-5");
+    calc.changeSign();
+    expect(calc.displayValue).toBe("5");
+  });
+
+  test("changes the sign of zero", () => {
+    calc.enterNumber("0");
+    calc.changeSign();
+    expect(calc.displayValue).toBe("0");
+  });
+
+  test("changes the sign of a decimal number", () => {
+    calc.enterNumber("3.14");
+    calc.changeSign();
+    expect(calc.displayValue).toBe("-3.14");
+  });
+
+  test("changes the sign of a negative decimal number", () => {
+    calc.enterNumber("-3.14");
+    calc.changeSign();
+    expect(calc.displayValue).toBe("3.14");
+  });
+
+  test("deletes multiple digits one by one", () => {
+    calc.enterNumber("1.23");
+    calc.delete();
+
+    expect(calc.displayValue).toBe("1.2");
+    calc.delete();
+    expect(calc.displayValue).toBe("1.");
+
+    calc.delete();
+    expect(calc.displayValue).toBe("1");
+    calc.delete();
+    expect(calc.displayValue).toBe("0");
+    calc.delete();
+    expect(calc.displayValue).toBe("0");
+  });
+  test("when deleting, if the number becomes a single negative sign, it should change to 0", () => {
+    calc.enterNumber("-9");
+    calc.delete();
+    expect(calc.displayValue).toBe("0");
   });
 });

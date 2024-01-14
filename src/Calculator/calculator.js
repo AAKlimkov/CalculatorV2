@@ -16,6 +16,13 @@ export default class Calculator {
     }
   }
 
+  delete() {
+    this.currentOperand = this.currentOperand.toString().slice(0, -1);
+    if (this.currentOperand === "" || this.currentOperand === "-")
+      this.currentOperand = "0";
+    this.displayValue = this.currentOperand;
+  }
+
   clear() {
     this.displayValue = "0";
     this.currentOperand = null;
@@ -63,5 +70,16 @@ export default class Calculator {
     this.displayValue = this.currentOperand;
     this.operation = null;
     this.previousOperand = "";
+  }
+
+  changeSign() {
+    if (this.currentOperand.startsWith("-")) {
+      this.currentOperand = this.currentOperand.substring(1);
+    } else if (this.currentOperand !== "0") {
+      this.currentOperand = `-${this.currentOperand}`;
+    } else {
+      this.currentOperand = "0";
+    }
+    this.displayValue = this.currentOperand;
   }
 }
