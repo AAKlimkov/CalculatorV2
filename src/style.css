@@ -13,7 +13,7 @@ body {
 
 .calculator-grid {
   width: 300px;
-  background-color: #333;
+  background-color: rgb(137 99 8);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
@@ -28,8 +28,6 @@ body {
   justify-content: space-around;
   flex-direction: column;
   padding: 10px;
-  word-wrap: break-word;
-  word-break: break-all;
   color: white;
   font-size: 2rem;
   text-align: right;
@@ -39,9 +37,9 @@ body {
 }
 
 .calculator-grid button {
-  background-color: #666;
+  background-color: #0f4201;
   border: none;
-  color: white;
+  color: gray;
   font-size: 1.5rem;
   margin: 5px;
   padding: 15px 0;
@@ -52,25 +50,21 @@ body {
 }
 
 .calculator-grid button:hover {
- opacity:0.8;
+  opacity: 0.8;
 }
 
 .calculator-grid .btn-operation {
-  background-color: #ff9500;
+  background-color: #1a9f9f;
   color: white;
 }
-.btn-operation:hover{
-  background-color: #ff9500;
-  opacity:0.9;
-}
-
-.calculator-grid .btn-zero {
-  grid-column: span 2;
+.btn-operation:hover {
+  background-color: #1a9f9f;
+  opacity: 0.9;
 }
 
 .calculator-grid .btn-equals {
   grid-column: span 1;
-  background-color: #ff9500;
+  background-color: #ad0303;
 }
 
 .calculator-grid .previous-operand,
@@ -86,9 +80,9 @@ body {
 }
 
 .calculator-grid .btn-clear,
-.calculator-grid .btn-sign,
-.calculator-grid .btn-percent {
-  background-color: #a6a6a6;
+.calculator-grid .btn-delete,
+.calculator-grid .btn-sign {
+  background-color: #f1f301;
 }
 
 .output .previous-operand {
@@ -106,8 +100,7 @@ body {
 }
 
 .calculator-grid .btn-clear,
-.calculator-grid .btn-sign,
-.calculator-grid .btn-percent {
+.calculator-grid .btn-sign {
   font-size: 1.2rem;
 }
 

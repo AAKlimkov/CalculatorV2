@@ -36,7 +36,7 @@ export default class Calculator {
       this.compute();
     }
     this.operation = operation;
-    this.previousOperand = this.currentOperand;
+    this.previousOperand = this.currentOperand + this.operation;
     this.currentOperand = null;
   }
 

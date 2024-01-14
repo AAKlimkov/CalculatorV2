@@ -1,6 +1,6 @@
 import create from "../Utils/create";
 
-export default function createCalculator() {
+export default function createCalculatorUI() {
   const calculatorGrid = create("div", "calculator-grid", null, document.body);
 
   const output = create("div", "output", null, calculatorGrid);
@@ -12,20 +12,20 @@ export default function createCalculator() {
 
   const buttons = [
     { text: "AC", data: ["role", "clear"], class: "btn-clear" },
-    { text: "^", data: ["role", "operation"], class: "btn-operation" },
     { text: "DEL", data: ["role", "delete"], class: "btn-delete" },
+    { text: "^", data: ["role", "operation"], class: "btn-operation" },
     { text: "÷", data: ["role", "operation"], class: "btn-operation span-two" },
-    { text: "1", data: ["role", "number"], class: "btn-number" },
-    { text: "2", data: ["role", "number"], class: "btn-number" },
-    { text: "3", data: ["role", "number"], class: "btn-number" },
+    { text: "9", data: ["role", "number"], class: "btn-number" },
+    { text: "8", data: ["role", "number"], class: "btn-number" },
+    { text: "7", data: ["role", "number"], class: "btn-number" },
     { text: "*", data: ["role", "operation"], class: "btn-operation span-two" },
+    { text: "6", data: ["role", "number"], class: "btn-number" },
     { text: "4", data: ["role", "number"], class: "btn-number" },
     { text: "5", data: ["role", "number"], class: "btn-number" },
-    { text: "6", data: ["role", "number"], class: "btn-number" },
     { text: "+", data: ["role", "operation"], class: "btn-operation span-two" },
-    { text: "7", data: ["role", "number"], class: "btn-number" },
-    { text: "8", data: ["role", "number"], class: "btn-number" },
-    { text: "9", data: ["role", "number"], class: "btn-number" },
+    { text: "3", data: ["role", "number"], class: "btn-number" },
+    { text: "2", data: ["role", "number"], class: "btn-number" },
+    { text: "1", data: ["role", "number"], class: "btn-number" },
     { text: "-", data: ["role", "operation"], class: "btn-operation span-two" },
     { text: ".", data: ["role", "decimal"], class: "btn-decimal" },
     { text: "0", data: ["role", "number"], class: "btn-number" },

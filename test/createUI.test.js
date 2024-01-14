@@ -1,10 +1,10 @@
-import createCalculator from "../src/Calculator/createUI";
+import createCalculatorUI from "../src/Calculator/createUI";
 
-describe("createCalculator function", () => {
+describe("createCalculatorUI function", () => {
   let calculatorGrid;
 
   beforeEach(() => {
-    calculatorGrid = createCalculator();
+    calculatorGrid = createCalculatorUI();
   });
 
   test("creates calculator grid", () => {
@@ -39,7 +39,7 @@ describe("createCalculator function", () => {
     const buttonAC = calculatorGrid.querySelector(".btn-clear");
     const buttonOne = calculatorGrid.querySelector(".btn-number");
     expect(buttonAC.textContent).toBe("AC");
-    expect(buttonOne.textContent).toBe("1");
+    expect(buttonOne.textContent).toBe("9");
   });
 
   test("button classes", () => {

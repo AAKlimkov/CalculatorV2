@@ -1,5 +1,13 @@
 import "./style.css";
 
-import createCalculator from "./Calculator/createUI";
+import createCalculatorUI from "./Calculator/createUI";
+import Calculator from "./Calculator/calculator";
+import setupEventHandlers from "./Calculator/eventHandler";
+import updateDisplay from "./Calculator/updateDisplay";
 
-createCalculator();
+const calculator = new Calculator();
+createCalculatorUI();
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupEventHandlers(calculator, updateDisplay);
+});
