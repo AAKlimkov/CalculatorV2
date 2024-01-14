@@ -1,5 +1,5 @@
 import "./style.css";
 
-import createCalculator from "./creatUI";
+import createCalculator from "./Calculator/createUI";
 
 createCalculator();

@@ -1,4 +1,4 @@
-import create from "./Utils/create";
+import create from "../Utils/create";
 
 export default function createCalculator() {
   const calculatorGrid = create("div", "calculator-grid", null, document.body);

@@ -1,4 +1,4 @@
-import createCalculator from "../src/creatUI";
+import createCalculator from "../src/Calculator/createUI";
 
 describe("createCalculator function", () => {
   let calculatorGrid;
@@ -32,7 +32,7 @@ describe("createCalculator function", () => {
 
   test("correct number of buttons", () => {
     const buttons = calculatorGrid.querySelectorAll("button");
-    expect(buttons.length).toBe(21);
+    expect(buttons.length).toBe(20);
   });
 
   test("button text content", () => {

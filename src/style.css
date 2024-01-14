@@ -52,12 +52,16 @@ body {
 }
 
 .calculator-grid button:hover {
-  background-color: #7e7e7e;
+ opacity:0.8;
 }
 
 .calculator-grid .btn-operation {
   background-color: #ff9500;
   color: white;
+}
+.btn-operation:hover{
+  background-color: #ff9500;
+  opacity:0.9;
 }
 
 .calculator-grid .btn-zero {
