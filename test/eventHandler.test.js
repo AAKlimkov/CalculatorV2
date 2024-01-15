@@ -81,7 +81,7 @@ describe("Calculator UI call update display", () => {
     );
     firstNumberButton.click();
     operationButtons[0].click();
-    expect(getPreviousValue()).toBe("9^");
+    expect(getPreviousValue()).toBe("9%");
     expect(getDisplayValue()).toBe("");
     operationButtons[1].click();
     expect(getPreviousValue()).toBe("9÷");
@@ -117,6 +117,7 @@ describe("Calculator UI call update display", () => {
       "[data-role='operation']",
     );
     firstNumberButton.click();
+    9;
     operationButtons[1].click();
     firstNumberButton.click();
     equalsButton.click();

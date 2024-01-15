@@ -59,6 +59,13 @@ describe("Calculator", () => {
     calc.compute();
     expect(calc.displayValue).toBe("4");
   });
+  test("percent two numbers", () => {
+    calc.enterNumber("20");
+    calc.chooseOperation("%");
+    calc.enterNumber("40");
+    calc.compute();
+    expect(calc.displayValue).toBe("8");
+  });
 
   test("handles division by zero", () => {
     calc.enterNumber("5");

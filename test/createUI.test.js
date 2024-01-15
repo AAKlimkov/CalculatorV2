@@ -54,7 +54,7 @@ describe("createCalculatorUI function", () => {
   test("correctly creates buttons with specified properties", () => {
     const expectedButtons = [
       { text: "AC", class: "btn-clear", dataRole: "clear" },
-      { text: "^", class: "btn-operation", dataRole: "operation" },
+      { text: "%", class: "btn-operation", dataRole: "operation" },
     ];
 
     expectedButtons.forEach(({ text, class: className, dataRole }) => {

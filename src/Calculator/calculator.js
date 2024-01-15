@@ -74,6 +74,9 @@ export default class Calculator {
       case "*":
         computation = prev * current;
         break;
+      case "%":
+        computation = (prev / 100) * current;
+        break;
       case "÷":
         if (current === 0) {
           this.clear();
