@@ -14,7 +14,7 @@ The project is set up with a Webpack module bundler for optimized production bui
 
 ## Task
 
-For detailed information about the functionality and the task requirements for this calculator project, refer to the [Task](https://github.com/AAKlimkov/CalculatorV2/blob/master/Innowise LabTask.pdf).
+For detailed information about the functionality and the task requirements for this calculator project, refer to the [Task](https://github.com/AAKlimkov/CalculatorV2/blob/master/Innowise_LabTask.pdf).
 
 ## Deploy
 
