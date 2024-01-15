@@ -7,5 +7,11 @@ export default function setupEventHandlers(calculator, updateDisplay) {
     });
   });
 
- 
+  const operationButtons = document.querySelectorAll('[data-role="operation"]');
+  operationButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      calculator.chooseOperation(button.textContent);
+      updateDisplay(calculator);
+    });
+  });
 }

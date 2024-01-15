@@ -31,13 +31,20 @@ export default class Calculator {
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === null) return;
-    if (this.previousOperand !== null) {
-      this.compute();
+    if (this.currentOperand === null) {
+      if (this.previousOperand) {
+        this.operation = operation;
+        this.previousOperand =
+          this.previousOperand.toString().slice(0, -1) + this.operation;
+      }
+    } else {
+      if (this.previousOperand !== null) {
+        this.compute();
+      }
+      this.operation = operation;
+      this.previousOperand = this.currentOperand + this.operation;
+      this.currentOperand = null;
     }
-    this.operation = operation;
-    this.previousOperand = this.currentOperand + this.operation;
-    this.currentOperand = null;
   }
 
   compute() {
