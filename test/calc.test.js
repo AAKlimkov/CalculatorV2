@@ -54,7 +54,7 @@ describe("Calculator", () => {
 
   test("divides two numbers", () => {
     calc.enterNumber("8");
-    calc.chooseOperation("/");
+    calc.chooseOperation("÷");
     calc.enterNumber("2");
     calc.compute();
     expect(calc.displayValue).toBe("4");
@@ -62,7 +62,7 @@ describe("Calculator", () => {
 
   test("handles division by zero", () => {
     calc.enterNumber("5");
-    calc.chooseOperation("/");
+    calc.chooseOperation("÷");
     calc.enterNumber("0");
     calc.compute();
     expect(calc.displayValue).toBe("Error");

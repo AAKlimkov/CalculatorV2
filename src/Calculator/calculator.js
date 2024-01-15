@@ -17,6 +17,8 @@ export default class Calculator {
   }
 
   delete() {
+    if (!this.currentOperand) return;
+
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
     if (this.currentOperand === "" || this.currentOperand === "-")
       this.currentOperand = "0";
@@ -61,7 +63,7 @@ export default class Calculator {
       case "*":
         computation = prev * current;
         break;
-      case "/":
+      case "÷":
         if (current === 0) {
           this.clear();
           this.displayValue = "Error";
