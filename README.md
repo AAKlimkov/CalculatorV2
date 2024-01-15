@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This project is a simple calculator web application.
-The design was designed by my wife
-The project is set up with a Webpack module bundler for optimized production builds.
+- This project is a simple calculator web application.
+- The design was designed by my wife.
+- The project is set up with a Webpack module bundler for optimized production builds.
 
 ## Features
 
