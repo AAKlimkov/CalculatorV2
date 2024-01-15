@@ -25,6 +25,17 @@ export default class Calculator {
     this.displayValue = this.currentOperand;
   }
 
+  decimal() {
+    if (this.displayValue.includes(".")) return;
+    if (this.displayValue === "0" || this.currentOperand === null) {
+      this.displayValue = "0.";
+      this.currentOperand = "0.";
+    } else {
+      this.displayValue += ".";
+      this.currentOperand += ".";
+    }
+  }
+
   clear() {
     this.displayValue = "0";
     this.currentOperand = null;

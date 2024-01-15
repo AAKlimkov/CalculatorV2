@@ -32,4 +32,10 @@ export default function setupEventHandlers(calculator, updateDisplay) {
     calculator.delete();
     updateDisplay(calculator);
   });
+
+  const decimalButton = document.querySelector('[data-role="decimal"]');
+  decimalButton.addEventListener("click", () => {
+    calculator.decimal();
+    updateDisplay(calculator);
+  });
 }

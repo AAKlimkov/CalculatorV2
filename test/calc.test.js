@@ -159,4 +159,23 @@ describe("Calculator", () => {
     calc.delete();
     expect(calc.displayValue).toBe("0");
   });
+  test("enters a decimal with 0", () => {
+    calc.decimal();
+    calc.enterNumber("2");
+    expect(calc.displayValue).toBe("0.2");
+  });
+  test("enters a sequence of numbers with decimal", () => {
+    calc.enterNumber("1");
+    calc.decimal();
+    calc.enterNumber("2");
+    expect(calc.displayValue).toBe("1.2");
+  });
+
+  test("do not enter second decimal", () => {
+    calc.enterNumber("1");
+    calc.decimal();
+    calc.decimal();
+    calc.enterNumber("2");
+    expect(calc.displayValue).toBe("1.2");
+  });
 });

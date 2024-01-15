@@ -42,6 +42,11 @@ describe("Calculator call update function", () => {
     deleteButton.click();
     expect(updateDisplayMock).toHaveBeenCalled();
   });
+  test("clicking decimal call update function", () => {
+    const decimalButton = document.querySelector("[data-role='decimal']");
+    decimalButton.click();
+    expect(updateDisplayMock).toHaveBeenCalled();
+  });
 });
 
 describe("Calculator UI call update display", () => {
@@ -116,6 +121,17 @@ describe("Calculator UI call update display", () => {
     firstNumberButton.click();
     equalsButton.click();
     expect(getDisplayValue()).toBe("1");
+    expect(getPreviousValue()).toBe("");
+  });
+  test("clicking decimal buttons updates the display", () => {
+    const decimalButton = document.querySelector("[data-role='decimal']");
+    const firstNumberButton = document.querySelector("[data-role='number']");
+
+    firstNumberButton.click();
+    decimalButton.click();
+    firstNumberButton.click();
+
+    expect(getDisplayValue()).toBe("9.9");
     expect(getPreviousValue()).toBe("");
   });
 });
