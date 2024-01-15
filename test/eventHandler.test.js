@@ -47,6 +47,13 @@ describe("Calculator call update function", () => {
     decimalButton.click();
     expect(updateDisplayMock).toHaveBeenCalled();
   });
+  test("clicking sign-change call update function", () => {
+    const signChangeButton = document.querySelector(
+      "[data-role='sign-change']",
+    );
+    signChangeButton.click();
+    expect(updateDisplayMock).toHaveBeenCalled();
+  });
 });
 
 describe("Calculator UI call update display", () => {
@@ -82,10 +89,10 @@ describe("Calculator UI call update display", () => {
     firstNumberButton.click();
     operationButtons[0].click();
     expect(getPreviousValue()).toBe("9%");
-    expect(getDisplayValue()).toBe("");
+    expect(getDisplayValue()).toBe("0");
     operationButtons[1].click();
     expect(getPreviousValue()).toBe("9÷");
-    expect(getDisplayValue()).toBe("");
+    expect(getDisplayValue()).toBe("0");
   });
   test("clicking delete buttons updates the display", () => {
     const firstNumberButton = document.querySelector("[data-role='number']");
@@ -107,7 +114,7 @@ describe("Calculator UI call update display", () => {
     operationButtons[0].click();
     firstNumberButton.click();
     clearButton.click();
-    expect(getDisplayValue()).toBe("");
+    expect(getDisplayValue()).toBe("0");
     expect(getPreviousValue()).toBe("");
   });
   test("clicking equals buttons updates the display", () => {
@@ -117,7 +124,6 @@ describe("Calculator UI call update display", () => {
       "[data-role='operation']",
     );
     firstNumberButton.click();
-    9;
     operationButtons[1].click();
     firstNumberButton.click();
     equalsButton.click();

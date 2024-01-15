@@ -8,7 +8,7 @@ export default function createCalculatorUI() {
     "data-previous-operand",
     "",
   ]);
-  create("div", "current-operand", null, output, ["data-current-operand", ""]);
+  create("div", "current-operand", "0", output, ["data-current-operand", ""]);
 
   const buttons = [
     { text: "AC", data: ["role", "clear"], class: "btn-clear" },

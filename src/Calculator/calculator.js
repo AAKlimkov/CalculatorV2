@@ -1,7 +1,7 @@
 export default class Calculator {
   constructor() {
     this.displayValue = "0";
-    this.currentOperand = null;
+    this.currentOperand = "0";
     this.previousOperand = null;
     this.operation = null;
   }
@@ -17,8 +17,7 @@ export default class Calculator {
   }
 
   delete() {
-    if (!this.currentOperand) return;
-
+    if (this.currentOperand === "0") return;
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
     if (this.currentOperand === "" || this.currentOperand === "-")
       this.currentOperand = "0";
@@ -38,13 +37,13 @@ export default class Calculator {
 
   clear() {
     this.displayValue = "0";
-    this.currentOperand = null;
+    this.currentOperand = "0";
     this.previousOperand = null;
     this.operation = null;
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === null) {
+    if (this.currentOperand === "0") {
       if (this.previousOperand) {
         this.operation = operation;
         this.previousOperand =
@@ -56,7 +55,7 @@ export default class Calculator {
       }
       this.operation = operation;
       this.previousOperand = this.currentOperand + this.operation;
-      this.currentOperand = null;
+      this.currentOperand = "0";
     }
   }
 

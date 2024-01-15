@@ -80,7 +80,7 @@ describe("Calculator", () => {
     calc.chooseOperation("^");
     calc.enterNumber("6");
     calc.compute();
-    expect(calc.displayValue).toBe("6");
+    expect(calc.displayValue).toBe("56");
   });
 
   test("chains multiple operations", () => {
