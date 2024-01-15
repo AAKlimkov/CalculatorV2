@@ -7,7 +7,7 @@ export default class Calculator {
   }
 
   enterNumber(number) {
-    if (this.displayValue === "0" || this.currentOperand === null) {
+    if (this.displayValue === "0" || this.currentOperand === "0") {
       this.displayValue = number;
       this.currentOperand = number;
     } else {

@@ -1,9 +1,9 @@
 import "./style.css";
 
-import createCalculatorUI from "./Calculator/createUI";
+import createCalculatorUI from "./UI/createUI";
 import Calculator from "./Calculator/calculator";
-import setupEventHandlers from "./Calculator/eventHandler";
-import updateDisplay from "./Calculator/updateDisplay";
+import setupEventHandlers from "./UI/eventHandler";
+import updateDisplay from "./UI/updateDisplay";
 
 const calculator = new Calculator();
 createCalculatorUI();

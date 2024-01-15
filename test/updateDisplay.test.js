@@ -1,4 +1,4 @@
-import updateDisplay from "../src/Calculator/updateDisplay";
+import updateDisplay from "../src/UI/updateDisplay";
 
 describe("updateDisplay function", () => {
   let mockCalculator;

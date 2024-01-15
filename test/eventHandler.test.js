@@ -1,7 +1,7 @@
-import createCalculatorUI from "../src/Calculator/createUI";
-import setupEventHandlers from "../src/Calculator/eventHandler";
+import createCalculatorUI from "../src/UI/createUI";
+import setupEventHandlers from "../src/UI/eventHandler";
 import Calculator from "../src/Calculator/calculator";
-import updateDisplay from "../src/Calculator/updateDisplay";
+import updateDisplay from "../src/UI/updateDisplay";
 
 describe("Calculator call update function", () => {
   let calculator;

@@ -1,4 +1,4 @@
-import createCalculatorUI from "../src/Calculator/createUI";
+import createCalculatorUI from "../src/UI/createUI";
 
 describe("createCalculatorUI function", () => {
   let calculatorGrid;

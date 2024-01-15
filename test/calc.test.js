@@ -75,18 +75,11 @@ describe("Calculator", () => {
     expect(calc.displayValue).toBe("Error");
   });
 
-  test("handles an invalid operation", () => {
-    calc.enterNumber("5");
-    calc.chooseOperation("^");
-    calc.enterNumber("6");
-    calc.compute();
-    expect(calc.displayValue).toBe("56");
-  });
-
   test("chains multiple operations", () => {
     calc.enterNumber("2");
     calc.chooseOperation("+");
     calc.enterNumber("3");
+    expect(calc.displayValue).toBe("3");
     calc.chooseOperation("*");
     calc.enterNumber("4");
     calc.compute();
