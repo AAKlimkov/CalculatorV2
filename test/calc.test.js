@@ -54,7 +54,7 @@ describe("Calculator", () => {
 
   test("divides two numbers", () => {
     calc.enterNumber("8");
-    calc.chooseOperation("÷");
+    calc.chooseOperation("/");
     calc.enterNumber("2");
     calc.compute();
     expect(calc.displayValue).toBe("4");
@@ -69,7 +69,7 @@ describe("Calculator", () => {
 
   test("handles division by zero", () => {
     calc.enterNumber("5");
-    calc.chooseOperation("÷");
+    calc.chooseOperation("/");
     calc.enterNumber("0");
     calc.compute();
     expect(calc.displayValue).toBe("Error");
@@ -84,6 +84,16 @@ describe("Calculator", () => {
     calc.enterNumber("4");
     calc.compute();
     expect(calc.displayValue).toBe("20"); // (2 + 3) * 4
+  });
+  test("resets operation and updates displayValue and currentOperand", () => {
+    calc.operation = "equal";
+    const inputNumber = "5";
+
+    calc.enterNumber(inputNumber);
+
+    expect(calc.operation).toBeNull();
+    expect(calc.displayValue).toBe(inputNumber);
+    expect(calc.currentOperand).toBe(inputNumber);
   });
 
   test("chooseOperation does nothing if currentOperand is empty", () => {

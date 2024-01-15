@@ -14,7 +14,7 @@ export default function createCalculatorUI() {
     { text: "AC", data: ["role", "clear"], class: "btn-clear" },
     { text: "DEL", data: ["role", "delete"], class: "btn-delete" },
     { text: "%", data: ["role", "operation"], class: "btn-operation" },
-    { text: "÷", data: ["role", "operation"], class: "btn-operation span-two" },
+    { text: "/", data: ["role", "operation"], class: "btn-operation span-two" },
     { text: "9", data: ["role", "number"], class: "btn-number" },
     { text: "8", data: ["role", "number"], class: "btn-number" },
     { text: "7", data: ["role", "number"], class: "btn-number" },

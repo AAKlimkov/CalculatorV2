@@ -44,40 +44,42 @@ export default function setupEventHandlers(calculator, updateDisplay) {
     updateDisplay(calculator);
   });
 
-  // document.addEventListener("keydown", (event) => {
-  //   switch (event.key) {
-  //     case "0":
-  //     case "1":
-  //     case "2":
-  //     case "3":
-  //     case "4":
-  //     case "5":
-  //     case "6":
-  //     case "7":
-  //     case "8":
-  //     case "9":
-  //       calculator.enterNumber(event.key);
-  //       break;
-  //     case "+":
-  //     case "-":
-  //     case "*":
-  //     case "/":
-  //       calculator.chooseOperation(event.key);
-  //       break;
-  //     case "Enter":
-  //     case "=":
-  //       calculator.compute();
-  //       break;
-  //     case "Escape":
-  //       calculator.clear();
-  //       break;
-  //     case "Backspace":
-  //       calculator.delete();
-  //       break;
-  //     // Handle decimal point, etc.
-  //     default:
-  //       break;
-  //   }
-  //   updateDisplay();
-  // });
+  document.addEventListener("keydown", (event) => {
+    switch (event.key) {
+      case "0":
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
+        calculator.enterNumber(event.key);
+        break;
+      case "+":
+      case "-":
+      case "*":
+      case "/":
+        calculator.chooseOperation(event.key);
+        break;
+      case "Enter":
+      case "=":
+        calculator.compute();
+        break;
+      case "Escape":
+        calculator.clear();
+        break;
+      case "Backspace":
+        calculator.delete();
+        break;
+      case ".":
+        calculator.decimal();
+        break;
+      default:
+        break;
+    }
+    updateDisplay(calculator);
+  });
 }

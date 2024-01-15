@@ -2,11 +2,23 @@
 
 ## Introduction
 
-This project is a simple calculator web application that allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division. The project is set up with a Webpack module bundler for optimized production builds.
+This project is a simple calculator web application.
+The design was designed by my wife
+The project is set up with a Webpack module bundler for optimized production builds.
+
+## Features
+
+- Perform basic arithmetic operations (addition, subtraction, multiplication, division and percentage).
+- Input numbers and perform calculations by clicking on buttons.
+- Input numbers using the keyboard for enhanced user convenience.
 
 ## Task
 
 For detailed information about the functionality and the task requirements for this calculator project, refer to the [Task](https://github.com/AAKlimkov/CalculatorV2/blob/master/Innowise LabTask.pdf).
+
+## Deploy
+
+You can access the deployed calculator app [here](https://aaklimkov.github.io/CalculatorV2/).
 
 ## How to Run the App
 

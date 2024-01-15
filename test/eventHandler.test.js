@@ -91,7 +91,7 @@ describe("Calculator UI call update display", () => {
     expect(getPreviousValue()).toBe("9%");
     expect(getDisplayValue()).toBe("0");
     operationButtons[1].click();
-    expect(getPreviousValue()).toBe("9÷");
+    expect(getPreviousValue()).toBe("9/");
     expect(getDisplayValue()).toBe("0");
   });
   test("clicking delete buttons updates the display", () => {

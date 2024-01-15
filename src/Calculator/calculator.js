@@ -7,6 +7,12 @@ export default class Calculator {
   }
 
   enterNumber(number) {
+    if (this.operation === "equal") {
+      this.operation = null;
+      this.displayValue = number;
+      this.currentOperand = number;
+      return;
+    }
     if (this.displayValue === "0" || this.currentOperand === "0") {
       this.displayValue = number;
       this.currentOperand = number;
@@ -76,7 +82,7 @@ export default class Calculator {
       case "%":
         computation = (prev / 100) * current;
         break;
-      case "÷":
+      case "/":
         if (current === 0) {
           this.clear();
           this.displayValue = "Error";
@@ -90,8 +96,8 @@ export default class Calculator {
     }
     this.currentOperand = computation.toString();
     this.displayValue = this.currentOperand;
-    this.operation = null;
     this.previousOperand = "";
+    this.operation = "equal";
   }
 
   changeSign() {
