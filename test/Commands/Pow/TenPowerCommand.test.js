@@ -28,8 +28,8 @@ describe("TenPowerCommand", () => {
 
     tenPowerCommand.undo();
 
-    expect(calculator.currentOperand).toBe("0");
-    expect(calculator.displayValue).toBe("0");
+    expect(calculator.currentOperand).toBe("50");
+    expect(calculator.displayValue).toBe("50");
   });
 
   test("Execute TenPowerCommand with decimal value", () => {
@@ -52,6 +52,12 @@ describe("TenPowerCommand", () => {
 
     tenPowerCommand.undo();
 
+    expect(calculator.currentOperand).toBe("7.");
+    expect(calculator.displayValue).toBe("7.");
+  });
+  test("handles undo with no previous state", () => {
+    const tenPowerCommand = new TenPowerCommand(calculator);
+    tenPowerCommand.undo();
     expect(calculator.currentOperand).toBe("0");
     expect(calculator.displayValue).toBe("0");
   });

@@ -31,6 +31,9 @@ export default class ComputeCommand extends Command {
       case "%":
         computation = (prev / 100) * current;
         break;
+      case "^":
+        computation = prev ** current;
+        break;
       case "/":
         if (current === 0) {
           this.calculator.clear();

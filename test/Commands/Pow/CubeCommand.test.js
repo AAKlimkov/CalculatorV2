@@ -1,26 +1,63 @@
-import Command from "../Command";
+import CubeCommand from "../../../src/Calculator/Commands/Pow/CubeCommand";
+import Calculator from "../../../src/Calculator/calculator";
 
-export default class CubeCommand extends Command {
-  constructor(calculator) {
-    super(calculator);
-    this.previousState = null;
-  }
+describe("CubeCommand", () => {
+  let calculator;
 
-  execute() {
-    this.previousState = {
-      currentOperand: this.calculator.currentOperand,
-      displayValue: this.calculator.displayValue,
-    };
+  beforeEach(() => {
+    calculator = new Calculator();
+  });
 
-    const currentValue = parseFloat(this.calculator.currentOperand);
-    this.calculator.currentOperand = (currentValue ** 3).toString();
-    this.calculator.displayValue = this.calculator.currentOperand;
-  }
+  test("Execute CubeCommand", () => {
+    calculator.enterNumber("4");
 
-  undo() {
-    if (this.previousState) {
-      this.calculator.currentOperand = this.previousState.currentOperand;
-      this.calculator.displayValue = this.previousState.displayValue;
-    }
-  }
-}
+    const cubeCommand = new CubeCommand(calculator);
+    cubeCommand.execute();
+
+    expect(calculator.currentOperand).toBe("64");
+    expect(calculator.displayValue).toBe("64");
+  });
+
+  test("Undo CubeCommand", () => {
+    calculator.enterNumber("8");
+
+    const cubeCommand = new CubeCommand(calculator);
+    cubeCommand.execute();
+
+    cubeCommand.undo();
+
+    expect(calculator.currentOperand).toBe("8");
+    expect(calculator.displayValue).toBe("8");
+  });
+
+  test("Execute CubeCommand with decimal value", () => {
+    calculator.enterNumber("2");
+    calculator.decimal();
+
+    const cubeCommand = new CubeCommand(calculator);
+    cubeCommand.execute();
+
+    expect(calculator.currentOperand).toBe("8");
+    expect(calculator.displayValue).toBe("8");
+  });
+
+  test("Undo CubeCommand with decimal value", () => {
+    calculator.enterNumber("3");
+    calculator.decimal();
+
+    const cubeCommand = new CubeCommand(calculator);
+    cubeCommand.execute();
+
+    cubeCommand.undo();
+
+    expect(calculator.currentOperand).toBe("3.");
+    expect(calculator.displayValue).toBe("3.");
+  });
+  test("handles undo with no previous state", () => {
+    const cubeCommand = new CubeCommand(calculator);
+
+    cubeCommand.undo();
+    expect(calculator.currentOperand).toBe("0");
+    expect(calculator.displayValue).toBe("0");
+  });
+});

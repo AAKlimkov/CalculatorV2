@@ -15,7 +15,6 @@ export default class PowerCommand extends Command {
 
     this.calculator.currentOperand += "^";
     this.calculator.displayValue = this.calculator.currentOperand;
-
   }
 
   undo() {
