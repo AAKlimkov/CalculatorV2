@@ -9,6 +9,10 @@ import MemoryClearCommand from "./Commands/Memory/MemoryClearCommand";
 import MemoryRecallCommand from "./Commands/Memory/MemoryRecallCommand";
 import MemoryAddCommand from "./Commands/Memory/MemoryAddCommand";
 import MemorySubtractCommand from "./Commands/Memory/MemorySubtractCommand";
+import SquareCommand from "./Commands/Pow/SquareCommand";
+import CubeCommand from "./Commands/Pow/CubeCommand";
+import PowerCommand from "./Commands/Pow/PowerCommand";
+import TenPowerCommand from "./Commands/Pow/TenPowerCommand";
 
 export default class Calculator {
   constructor() {
@@ -74,5 +78,21 @@ export default class Calculator {
 
   memorySubtract() {
     this.executeCommand(new MemorySubtractCommand(this));
+  }
+
+  square() {
+    this.executeCommand(new SquareCommand(this));
+  }
+
+  cube() {
+    this.executeCommand(new CubeCommand(this));
+  }
+
+  power(exponent) {
+    this.executeCommand(new PowerCommand(this, exponent));
+  }
+
+  tenPower() {
+    this.executeCommand(new TenPowerCommand(this));
   }
 }

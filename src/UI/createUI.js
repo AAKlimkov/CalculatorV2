@@ -41,14 +41,16 @@ export default function createCalculatorUI() {
     { text: "7", data: ["role", "number"], class: "btn-number" },
     { text: "*", data: ["role", "operation"], class: "btn-operation span-two" },
     {
-      text: "x2",
-      data: ["role", "operation"],
-      class: "btn-operation span-two",
+      text: "x^2",
+      data: ["role", "power"],
+      data2: ["power", "2"],
+      class: "btn-power span-two",
     },
     {
-      text: "x3",
-      data: ["role", "operation"],
-      class: "btn-operation span-two",
+      text: "x^3",
+      data: ["role", "power"],
+      data2: ["power", "3"],
+      class: "btn-power span-two",
     },
     { text: "6", data: ["role", "number"], class: "btn-number" },
     { text: "4", data: ["role", "number"], class: "btn-number" },
@@ -56,14 +58,17 @@ export default function createCalculatorUI() {
     { text: "+", data: ["role", "operation"], class: "btn-operation span-two" },
 
     {
-      text: "xy",
-      data: ["role", "operation"],
-      class: "btn-operation span-two",
+      text: "x^y",
+      data: ["role", "power"],
+      data2: ["power", "y"],
+
+      class: "btn-power span-two",
     },
     {
-      text: "10x",
-      data: ["role", "operation"],
-      class: "btn-operation span-two",
+      text: "10^x",
+      data: ["role", "power"],
+      data2: ["power", "10"],
+      class: "btn-power span-two",
     },
 
     { text: "3", data: ["role", "number"], class: "btn-number" },
@@ -102,8 +107,8 @@ export default function createCalculatorUI() {
     },
   ];
 
-  buttons.forEach(({ text, data, class: className = "" }) => {
-    create("button", className, text, calculatorGrid, data);
+  buttons.forEach(({ text, data, data2 = ["", ""], class: className = "" }) => {
+    create("button", className, text, calculatorGrid, data, data2);
   });
 
   return calculatorGrid;

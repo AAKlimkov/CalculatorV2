@@ -90,6 +90,38 @@ export default function setupEventHandlers(calculator, updateDisplay) {
     });
   });
 
+  const powerButtons = document.querySelectorAll('[data-role="power"]');
+
+  function handlePowerButtonClick(power) {
+    switch (power) {
+      case "2":
+        calculator.square();
+        updateMemoryButtonState();
+        break;
+      case "3":
+        calculator.cube();
+        break;
+      case "y":
+        calculator.power();
+        updateMemoryButtonState();
+        break;
+      case "10":
+        calculator.tenPower();
+        updateMemoryButtonState();
+        break;
+      default:
+        break;
+    }
+  }
+
+  powerButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const powerValue = button.dataset.power;
+      handlePowerButtonClick(powerValue);
+      updateDisplay(calculator);
+    });
+  });
+
   document.addEventListener("keydown", (event) => {
     switch (event.key) {
       case "0":
