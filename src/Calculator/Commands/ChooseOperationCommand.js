@@ -9,7 +9,6 @@ export default class ChooseOperationCommand extends Command {
 
   execute() {
     this.previousState = {
-      displayValue: this.calculator.displayValue,
       currentOperand: this.calculator.currentOperand,
       previousOperand: this.calculator.previousOperand,
       operation: this.calculator.operation,

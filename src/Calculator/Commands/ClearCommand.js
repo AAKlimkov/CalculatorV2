@@ -21,11 +21,9 @@ export default class ClearCommand extends Command {
   }
 
   undo() {
-    if (this.previousState) {
-      this.calculator.displayValue = this.previousState.displayValue;
-      this.calculator.currentOperand = this.previousState.currentOperand;
-      this.calculator.previousOperand = this.previousState.previousOperand;
-      this.calculator.operation = this.previousState.operation;
-    }
+    this.calculator.displayValue = this.previousState.displayValue;
+    this.calculator.currentOperand = this.previousState.currentOperand;
+    this.calculator.previousOperand = this.previousState.previousOperand;
+    this.calculator.operation = this.previousState.operation;
   }
 }

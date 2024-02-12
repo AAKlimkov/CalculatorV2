@@ -26,8 +26,6 @@ export default class DeleteCommand extends Command {
     ) {
       this.calculator.currentOperand = "0";
     }
-
-    this.calculator.displayValue = this.calculator.currentOperand;
   }
 
   undo() {
