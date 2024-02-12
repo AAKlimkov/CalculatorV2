@@ -43,6 +43,52 @@ export default function setupEventHandlers(calculator, updateDisplay) {
     calculator.changeSign();
     updateDisplay(calculator);
   });
+  const memoryButtons = document.querySelectorAll('[data-role="memory"]');
+
+  function updateMemoryButtonState() {
+    const memoryDisabledButtons = [
+      document.querySelectorAll('[data-role="memory"]')[0],
+      document.querySelectorAll('[data-role="memory"]')[1],
+    ];
+
+    memoryDisabledButtons.forEach((el, index) => {
+      if (calculator.memory === null) {
+        memoryDisabledButtons[index].disabled = true;
+        memoryDisabledButtons[index].classList.add("disabled");
+      } else {
+        memoryDisabledButtons[index].disabled = false;
+        memoryDisabledButtons[index].classList.remove("disabled");
+      }
+    });
+  }
+  function handleMemoryButtonClick(text) {
+    switch (text) {
+      case "MC":
+        calculator.memoryClear();
+        updateMemoryButtonState();
+        break;
+      case "MR":
+        calculator.memoryRecall();
+        break;
+      case "M+":
+        calculator.memoryAdd();
+        updateMemoryButtonState();
+        break;
+      case "M-":
+        calculator.memorySubtract();
+        updateMemoryButtonState();
+        break;
+      default:
+        break;
+    }
+  }
+
+  memoryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      handleMemoryButtonClick(button.textContent);
+      updateDisplay(calculator);
+    });
+  });
 
   document.addEventListener("keydown", (event) => {
     switch (event.key) {

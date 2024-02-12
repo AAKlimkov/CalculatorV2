@@ -5,12 +5,17 @@ import ClearCommand from "./Commands/ClearCommand";
 import ChooseOperationCommand from "./Commands/ChooseOperationCommand";
 import ComputeCommand from "./Commands/ComputeCommand";
 import ChangeSignCommand from "./Commands/ChangeSignCommand";
+import MemoryClearCommand from "./Commands/Memory/MemoryClearCommand";
+import MemoryRecallCommand from "./Commands/Memory/MemoryRecallCommand";
+import MemoryAddCommand from "./Commands/Memory/MemoryAddCommand";
+import MemorySubtractCommand from "./Commands/Memory/MemorySubtractCommand";
 
 export default class Calculator {
   constructor() {
     this.displayValue = "0";
     this.currentOperand = "0";
     this.previousOperand = null;
+    this.memory = null;
     this.operation = null;
     this.commands = [];
   }
@@ -53,5 +58,21 @@ export default class Calculator {
 
   changeSign() {
     this.executeCommand(new ChangeSignCommand(this));
+  }
+
+  memoryClear() {
+    this.executeCommand(new MemoryClearCommand(this));
+  }
+
+  memoryRecall() {
+    this.executeCommand(new MemoryRecallCommand(this));
+  }
+
+  memoryAdd() {
+    this.executeCommand(new MemoryAddCommand(this));
+  }
+
+  memorySubtract() {
+    this.executeCommand(new MemorySubtractCommand(this));
   }
 }
