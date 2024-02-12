@@ -39,6 +39,13 @@ describe("DeleteCommand", () => {
   });
 
   describe("undo", () => {
+    test("handles undo with no previous state", () => {
+      deleteCommand.undo();
+
+      expect(calculator.currentOperand).toBe("6789");
+      expect(calculator.previousOperand).toBe("5*");
+      expect(calculator.operation).toBe("+");
+    });
     it("should undo the execute operation and restore previous state", () => {
       deleteCommand.execute();
       deleteCommand.undo();

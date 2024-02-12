@@ -36,6 +36,13 @@ describe("ChooseOperationCommand", () => {
   });
 
   describe("undo", () => {
+    test("handles undo with no previous state", () => {
+      chooseOperationCommand.undo();
+
+      expect(calculator.currentOperand).toBe("456");
+      expect(calculator.previousOperand).toBe("789+");
+      expect(calculator.operation).toBe("+");
+    });
     it("should undo the execute operation and restore previous state", () => {
       chooseOperationCommand.execute();
       chooseOperationCommand.undo();

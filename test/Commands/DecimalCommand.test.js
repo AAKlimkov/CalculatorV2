@@ -19,7 +19,6 @@ describe("DecimalCommand", () => {
     it("should add a decimal point to displayValue and currentOperand if not present", () => {
       decimalCommand.execute();
 
-      // Assert that the decimal point is added as expected
       expect(calculator.displayValue).toBe("3.14");
       expect(calculator.currentOperand).toBe("2.71");
     });
@@ -30,7 +29,6 @@ describe("DecimalCommand", () => {
 
       decimalCommand.execute();
 
-      // Assert that a second decimal point is not added
       expect(calculator.displayValue).toBe("3.14");
       expect(calculator.currentOperand).toBe("2.71");
     });
@@ -41,26 +39,27 @@ describe("DecimalCommand", () => {
 
       decimalCommand.execute();
 
-      // Assert that the decimal point is added as expected
       expect(calculator.displayValue).toBe("0.");
       expect(calculator.currentOperand).toBe("0.");
     });
-
-    // Add more specific test cases for the execute method as needed
   });
 
   describe("undo", () => {
+    test("handles undo with no previous state", () => {
+      decimalCommand.undo();
+
+      expect(calculator.currentOperand).toBe("2.71");
+      expect(calculator.previousOperand).toBe("5*");
+      expect(calculator.operation).toBe("+");
+    });
     it("should undo the execute operation and restore previous state", () => {
       decimalCommand.execute();
       decimalCommand.undo();
 
-      // Assert that the state is restored to its original values
       expect(calculator.displayValue).toBe("3.14");
       expect(calculator.currentOperand).toBe("2.71");
       expect(calculator.previousOperand).toBe("5*");
       expect(calculator.operation).toBe("+");
     });
-
-    // Add more specific test cases for the undo method as needed
   });
 });

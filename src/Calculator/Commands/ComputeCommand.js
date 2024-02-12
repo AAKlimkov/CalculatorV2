@@ -40,6 +40,7 @@ export default class ComputeCommand extends Command {
         computation = prev / current;
         break;
       default:
+        this.calculator.operation = null;
         return;
     }
 
