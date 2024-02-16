@@ -4,6 +4,9 @@ function calculateFactorial(num) {
   if (num === 0 || num === 1) {
     return 1;
   }
+  if (Number.isFinite(num)) {
+    return Infinity;
+  }
   return num * calculateFactorial(num - 1);
 }
 
@@ -24,6 +27,11 @@ export default class FactorialCommand extends Command {
     if (Number.isInteger(currentValue) && currentValue >= 0) {
       this.calculator.currentOperand =
         calculateFactorial(currentValue).toString();
+      if (!Number.isFinite(this.calculator.currentOperand)) {
+        this.calculator.clear();
+        this.calculator.displayValue = "Error";
+        this.calculator.currentOperand = "Error";
+      }
     } else {
       this.calculator.clear();
       this.calculator.displayValue = "Error";
