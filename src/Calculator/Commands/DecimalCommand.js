@@ -15,7 +15,12 @@ export default class DecimalCommand extends Command {
     };
 
     if (this.calculator.displayValue.includes(".")) return;
-
+    if (
+      this.calculator.currentOperand === "0" ||
+      this.calculator.currentOperand === "Error"
+    ) {
+      this.calculator.displayValue = "0";
+    }
     if (
       this.calculator.displayValue === "0" ||
       this.calculator.currentOperand === null

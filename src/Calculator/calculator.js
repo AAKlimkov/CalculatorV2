@@ -13,6 +13,8 @@ import SquareCommand from "./Commands/Pow/SquareCommand";
 import CubeCommand from "./Commands/Pow/CubeCommand";
 import PowerCommand from "./Commands/Pow/PowerCommand";
 import TenPowerCommand from "./Commands/Pow/TenPowerCommand";
+import SquareRootCommand from "./Commands/Pow/SquareRootCommand";
+import CubeRootCommand from "./Commands/Pow/CubeRootCommand";
 
 export default class Calculator {
   constructor() {
@@ -94,5 +96,13 @@ export default class Calculator {
 
   tenPower() {
     this.executeCommand(new TenPowerCommand(this));
+  }
+
+  squareRoot() {
+    this.executeCommand(new SquareRootCommand(this));
+  }
+
+  cubeRoot() {
+    this.executeCommand(new CubeRootCommand(this));
   }
 }

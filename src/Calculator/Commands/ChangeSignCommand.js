@@ -17,10 +17,13 @@ export default class ChangeSignCommand extends Command {
     if (this.calculator.currentOperand.startsWith("-")) {
       this.calculator.currentOperand =
         this.calculator.currentOperand.substring(1);
+    } else if (
+      this.calculator.currentOperand === "0" ||
+      this.calculator.currentOperand === "Error"
+    ) {
+      this.calculator.currentOperand = "0";
     } else if (this.calculator.currentOperand !== "0") {
       this.calculator.currentOperand = `-${this.calculator.currentOperand}`;
-    } else {
-      this.calculator.currentOperand = "0";
     }
 
     this.calculator.displayValue = this.calculator.currentOperand;

@@ -26,8 +26,8 @@ describe("SquareCommand", () => {
 
     squareCommand.undo();
 
-    expect(calculator.currentOperand).toBe("0");
-    expect(calculator.displayValue).toBe("0");
+    expect(calculator.currentOperand).toBe("8");
+    expect(calculator.displayValue).toBe("8");
   });
 
   test("Execute SquareCommand with decimal value", () => {

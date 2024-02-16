@@ -109,6 +109,14 @@ export default function setupEventHandlers(calculator, updateDisplay) {
         calculator.tenPower();
         updateMemoryButtonState();
         break;
+      case "0.5":
+        calculator.squareRoot();
+        updateMemoryButtonState();
+        break;
+      case "1/3":
+        calculator.cubeRoot();
+        updateMemoryButtonState();
+        break;
       default:
         break;
     }

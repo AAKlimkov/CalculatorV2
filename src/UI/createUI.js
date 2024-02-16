@@ -75,28 +75,32 @@ export default function createCalculatorUI() {
     { text: "2", data: ["role", "number"], class: "btn-number" },
     { text: "1", data: ["role", "number"], class: "btn-number" },
     { text: "-", data: ["role", "operation"], class: "btn-operation span-two" },
-    {
-      text: "1/x",
-      data: ["role", "operation"],
-      class: "btn-operation span-two",
-    },
+
     {
       text: "√x",
-      data: ["role", "operation"],
-      class: "btn-operation span-two",
+      data: ["role", "power"],
+      data2: ["power", "0.5"],
+      class: "btn-power span-two",
     },
-
+    {
+      text: "3√x",
+      data: ["role", "power"],
+      data2: ["power", "1/3"],
+      class: "btn-power span-two",
+    },
     { text: ".", data: ["role", "decimal"], class: "btn-decimal" },
     { text: "0", data: ["role", "number"], class: "btn-number" },
     { text: "+/-", data: ["role", "sign-change"], class: "btn-sign" },
     { text: "=", data: ["role", "equals"], class: "btn-equals" },
-    {
-      text: "3√x",
-      data: ["role", "operation"],
-      class: "btn-operation span-two",
-    },
+
     {
       text: "y√x",
+      data: ["role", "power"],
+      data2: ["power", "0.3"],
+      class: "btn-power span-two",
+    },
+    {
+      text: "1/x",
       data: ["role", "operation"],
       class: "btn-operation span-two",
     },

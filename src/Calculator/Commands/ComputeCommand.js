@@ -38,6 +38,7 @@ export default class ComputeCommand extends Command {
         if (current === 0) {
           this.calculator.clear();
           this.calculator.displayValue = "Error";
+          this.calculator.currentOperand = "Error";
           return;
         }
         computation = prev / current;

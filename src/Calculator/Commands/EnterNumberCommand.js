@@ -21,7 +21,8 @@ export default class EnterNumberCommand extends Command {
       this.calculator.currentOperand = this.number;
     } else if (
       this.calculator.displayValue === "0" ||
-      this.calculator.currentOperand === "0"
+      this.calculator.currentOperand === "0" ||
+      this.calculator.currentOperand === "Error"
     ) {
       this.calculator.displayValue = this.number;
       this.calculator.currentOperand = this.number;

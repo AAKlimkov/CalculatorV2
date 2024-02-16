@@ -14,7 +14,10 @@ export default class ChooseOperationCommand extends Command {
       operation: this.calculator.operation,
     };
 
-    if (this.calculator.currentOperand === "0") {
+    if (
+      this.calculator.currentOperand === "0" ||
+      this.calculator.currentOperand === "Error"
+    ) {
       if (this.calculator.previousOperand) {
         this.calculator.operation = this.operation;
         this.calculator.previousOperand =
