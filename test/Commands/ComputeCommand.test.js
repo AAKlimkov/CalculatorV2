@@ -130,4 +130,36 @@ describe("ComputeCommand", () => {
       expect(calculator.operation).toBe("+");
     });
   });
+  test("computes power (^) correctly", () => {
+    calculator.previousOperand = "2";
+    calculator.currentOperand = "3";
+    calculator.operation = "^";
+
+    const command = new ComputeCommand(calculator);
+    command.execute();
+
+    expect(calculator.displayValue).toBe("8");
+  });
+
+  test("computes square root (√) correctly for positive values", () => {
+    calculator.previousOperand = "16";
+    calculator.currentOperand = "2";
+    calculator.operation = "√";
+
+    const command = new ComputeCommand(calculator);
+    command.execute();
+
+    expect(calculator.displayValue).toBe("4");
+  });
+
+  test("handles square root (√) computation for negative values", () => {
+    calculator.previousOperand = "-9";
+    calculator.currentOperand = "2";
+    calculator.operation = "√";
+
+    const command = new ComputeCommand(calculator);
+    command.execute();
+
+    expect(calculator.displayValue).toBe("Error");
+  });
 });

@@ -13,14 +13,7 @@ export default class SquareCommand extends Command {
     };
 
     const currentValue = parseFloat(this.calculator.currentOperand);
-    if (currentValue < 0) {
-      this.calculator.currentOperand = (
-        -1 *
-        (currentValue * -1) ** (1 / 3)
-      ).toString();
-    } else {
-      this.calculator.currentOperand = (currentValue ** (1 / 3)).toString();
-    }
+    this.calculator.currentOperand = Math.cbrt(currentValue).toString();
     this.calculator.displayValue = this.calculator.currentOperand;
   }
 

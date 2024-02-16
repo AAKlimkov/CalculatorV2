@@ -22,7 +22,7 @@ export default class ChangeSignCommand extends Command {
       this.calculator.currentOperand === "Error"
     ) {
       this.calculator.currentOperand = "0";
-    } else if (this.calculator.currentOperand !== "0") {
+    } else {
       this.calculator.currentOperand = `-${this.calculator.currentOperand}`;
     }
 
