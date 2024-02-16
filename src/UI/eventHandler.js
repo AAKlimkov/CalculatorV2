@@ -43,6 +43,17 @@ export default function setupEventHandlers(calculator, updateDisplay) {
     calculator.changeSign();
     updateDisplay(calculator);
   });
+  const factorialButton = document.querySelector('[data-role="factorial"]');
+  factorialButton.addEventListener("click", () => {
+    calculator.factorial();
+    updateDisplay(calculator);
+  });
+  const reciprocalButton = document.querySelector('[data-role="reciprocal"]');
+  reciprocalButton.addEventListener("click", () => {
+    calculator.reciprocal();
+    updateDisplay(calculator);
+  });
+
   const memoryButtons = document.querySelectorAll('[data-role="memory"]');
 
   function updateMemoryButtonState() {

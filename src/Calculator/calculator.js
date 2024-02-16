@@ -11,10 +11,11 @@ import MemoryAddCommand from "./Commands/Memory/MemoryAddCommand";
 import MemorySubtractCommand from "./Commands/Memory/MemorySubtractCommand";
 import SquareCommand from "./Commands/Pow/SquareCommand";
 import CubeCommand from "./Commands/Pow/CubeCommand";
-import PowerCommand from "./Commands/Pow/PowerCommand";
 import TenPowerCommand from "./Commands/Pow/TenPowerCommand";
 import SquareRootCommand from "./Commands/Pow/SquareRootCommand";
 import CubeRootCommand from "./Commands/Pow/CubeRootCommand";
+import FactorialCommand from "./Commands/FactorialCommand";
+import ReciprocalCommand from "./Commands/ReciprocalCommand";
 
 export default class Calculator {
   constructor() {
@@ -90,10 +91,6 @@ export default class Calculator {
     this.executeCommand(new CubeCommand(this));
   }
 
-  power(exponent) {
-    this.executeCommand(new PowerCommand(this, exponent));
-  }
-
   tenPower() {
     this.executeCommand(new TenPowerCommand(this));
   }
@@ -104,5 +101,13 @@ export default class Calculator {
 
   cubeRoot() {
     this.executeCommand(new CubeRootCommand(this));
+  }
+
+  factorial() {
+    this.executeCommand(new FactorialCommand(this));
+  }
+
+  reciprocal() {
+    this.executeCommand(new ReciprocalCommand(this));
   }
 }

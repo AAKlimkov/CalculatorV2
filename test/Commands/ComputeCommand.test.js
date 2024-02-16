@@ -32,7 +32,7 @@ describe("ComputeCommand", () => {
       computeCommand.execute();
 
       expect(calculator.displayValue).toBe("Error");
-      expect(calculator.currentOperand).toBe("0");
+      expect(calculator.currentOperand).toBe("Error");
       expect(calculator.previousOperand).toBe("3");
       expect(calculator.operation).toBe("/");
     });

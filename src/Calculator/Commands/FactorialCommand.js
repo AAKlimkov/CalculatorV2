@@ -1,6 +1,13 @@
-import Command from "../Command";
+import Command from "./Command";
 
-export default class SquareCommand extends Command {
+function calculateFactorial(num) {
+  if (num === 0 || num === 1) {
+    return 1;
+  }
+  return num * calculateFactorial(num - 1);
+}
+
+export default class FactorialCommand extends Command {
   constructor(calculator) {
     super(calculator);
     this.previousState = null;
@@ -13,14 +20,16 @@ export default class SquareCommand extends Command {
     };
 
     const currentValue = parseFloat(this.calculator.currentOperand);
-    if (currentValue < 0) {
-      this.calculator.currentOperand = (
-        -1 *
-        (currentValue * -1) ** (1 / 3)
-      ).toString();
+
+    if (Number.isInteger(currentValue) && currentValue >= 0) {
+      this.calculator.currentOperand =
+        calculateFactorial(currentValue).toString();
     } else {
-      this.calculator.currentOperand = (currentValue ** (1 / 3)).toString();
+      this.calculator.clear();
+      this.calculator.displayValue = "Error";
+      this.calculator.currentOperand = "Error";
     }
+
     this.calculator.displayValue = this.calculator.currentOperand;
   }
 

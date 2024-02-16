@@ -58,8 +58,8 @@ export default function createCalculatorUI() {
     { text: "+", data: ["role", "operation"], class: "btn-operation span-two" },
 
     {
-      text: "x^y",
-      data: ["role", "power"],
+      text: "^",
+      data: ["role", "operation"],
       data2: ["power", "y"],
 
       class: "btn-power span-two",
@@ -94,19 +94,19 @@ export default function createCalculatorUI() {
     { text: "=", data: ["role", "equals"], class: "btn-equals" },
 
     {
-      text: "y√x",
-      data: ["role", "power"],
+      text: "√",
+      data: ["role", "operation"],
       data2: ["power", "0.3"],
       class: "btn-power span-two",
     },
     {
       text: "1/x",
-      data: ["role", "operation"],
+      data: ["role", "reciprocal"],
       class: "btn-operation span-two",
     },
     {
       text: "x!",
-      data: ["role", "operation"],
+      data: ["role", "factorial"],
       class: "btn-operation span-two",
     },
   ];

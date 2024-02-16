@@ -9,13 +9,13 @@ describe("CubeRootCommand", () => {
   });
 
   test("Execute CubeRootCommand", () => {
-    calculator.enterNumber("8");
+    calculator.enterNumber("-8");
 
     const cubeRootCommand = new CubeRootCommand(calculator);
     cubeRootCommand.execute();
 
-    expect(calculator.currentOperand).toBe("2");
-    expect(calculator.displayValue).toBe("2");
+    expect(calculator.currentOperand).toBe("-2");
+    expect(calculator.displayValue).toBe("-2");
   });
 
   test("Undo CubeRootCommand", () => {

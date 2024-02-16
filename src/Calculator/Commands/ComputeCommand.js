@@ -34,6 +34,16 @@ export default class ComputeCommand extends Command {
       case "^":
         computation = prev ** current;
         break;
+      case "√":
+        if (current > 0 && prev < 0) {
+          this.calculator.clear();
+          this.calculator.displayValue = "Error";
+          this.calculator.currentOperand = "Error";
+          return;
+        }
+        computation = prev ** (1 / current);
+
+        break;
       case "/":
         if (current === 0) {
           this.calculator.clear();
