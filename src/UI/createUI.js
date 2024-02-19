@@ -11,30 +11,108 @@ export default function createCalculatorUI() {
   create("div", "current-operand", "0", output, ["data-current-operand", ""]);
 
   const buttons = [
+    {
+      text: "MC",
+      data: ["role", "memory"],
+      class: "btn-memory span-two",
+    },
+    {
+      text: "MR",
+      data: ["role", "memory"],
+      class: "btn-memory span-two",
+    },
     { text: "AC", data: ["role", "clear"], class: "btn-clear" },
     { text: "DEL", data: ["role", "delete"], class: "btn-delete" },
     { text: "%", data: ["role", "operation"], class: "btn-operation" },
     { text: "/", data: ["role", "operation"], class: "btn-operation span-two" },
+    {
+      text: "M+",
+      data: ["role", "memory"],
+      class: "btn-memory span-two",
+    },
+    {
+      text: "M-",
+      data: ["role", "memory"],
+      class: "btn-memory span-two",
+    },
+
     { text: "9", data: ["role", "number"], class: "btn-number" },
     { text: "8", data: ["role", "number"], class: "btn-number" },
     { text: "7", data: ["role", "number"], class: "btn-number" },
     { text: "*", data: ["role", "operation"], class: "btn-operation span-two" },
+    {
+      text: "x^2",
+      data: ["role", "power"],
+      data2: ["power", "2"],
+      class: "btn-power span-two",
+    },
+    {
+      text: "x^3",
+      data: ["role", "power"],
+      data2: ["power", "3"],
+      class: "btn-power span-two",
+    },
     { text: "6", data: ["role", "number"], class: "btn-number" },
     { text: "4", data: ["role", "number"], class: "btn-number" },
     { text: "5", data: ["role", "number"], class: "btn-number" },
     { text: "+", data: ["role", "operation"], class: "btn-operation span-two" },
+
+    {
+      text: "^",
+      data: ["role", "operation"],
+      data2: ["power", "y"],
+
+      class: "btn-power span-two",
+    },
+    {
+      text: "10^x",
+      data: ["role", "power"],
+      data2: ["power", "10"],
+      class: "btn-power span-two",
+    },
+
     { text: "3", data: ["role", "number"], class: "btn-number" },
     { text: "2", data: ["role", "number"], class: "btn-number" },
     { text: "1", data: ["role", "number"], class: "btn-number" },
     { text: "-", data: ["role", "operation"], class: "btn-operation span-two" },
+
+    {
+      text: "√x",
+      data: ["role", "power"],
+      data2: ["power", "0.5"],
+      class: "btn-power span-two",
+    },
+    {
+      text: "3√x",
+      data: ["role", "power"],
+      data2: ["power", "1/3"],
+      class: "btn-power span-two",
+    },
     { text: ".", data: ["role", "decimal"], class: "btn-decimal" },
     { text: "0", data: ["role", "number"], class: "btn-number" },
     { text: "+/-", data: ["role", "sign-change"], class: "btn-sign" },
     { text: "=", data: ["role", "equals"], class: "btn-equals" },
+
+    {
+      text: "√",
+      data: ["role", "operation"],
+      data2: ["power", "0.3"],
+      class: "btn-power span-two",
+    },
+    {
+      text: "1/x",
+      data: ["role", "reciprocal"],
+      class: "btn-operation span-two",
+    },
+    {
+      text: "x!",
+      data: ["role", "factorial"],
+      class: "btn-operation span-two",
+    },
   ];
 
-  buttons.forEach(({ text, data, class: className = "" }) => {
-    create("button", className, text, calculatorGrid, data);
+  buttons.forEach(({ text, data, data2 = ["", ""], class: className = "" }) => {
+    create("button", className, text, calculatorGrid, data, data2);
   });
 
   return calculatorGrid;

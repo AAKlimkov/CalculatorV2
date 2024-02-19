@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.less";
 
 import createCalculatorUI from "./UI/createUI";
 import Calculator from "./Calculator/calculator";

@@ -43,6 +43,103 @@ export default function setupEventHandlers(calculator, updateDisplay) {
     calculator.changeSign();
     updateDisplay(calculator);
   });
+  const factorialButton = document.querySelector('[data-role="factorial"]');
+  factorialButton.addEventListener("click", () => {
+    calculator.factorial();
+    updateDisplay(calculator);
+  });
+  const reciprocalButton = document.querySelector('[data-role="reciprocal"]');
+  reciprocalButton.addEventListener("click", () => {
+    calculator.reciprocal();
+    updateDisplay(calculator);
+  });
+
+  const memoryButtons = document.querySelectorAll('[data-role="memory"]');
+
+  function updateMemoryButtonState() {
+    const memoryDisabledButtons = [
+      document.querySelectorAll('[data-role="memory"]')[0],
+      document.querySelectorAll('[data-role="memory"]')[1],
+    ];
+
+    memoryDisabledButtons.forEach((el, index) => {
+      if (calculator.memory === null) {
+        memoryDisabledButtons[index].disabled = true;
+        memoryDisabledButtons[index].classList.add("disabled");
+      } else {
+        memoryDisabledButtons[index].disabled = false;
+        memoryDisabledButtons[index].classList.remove("disabled");
+      }
+    });
+  }
+  function handleMemoryButtonClick(text) {
+    switch (text) {
+      case "MC":
+        calculator.memoryClear();
+        updateMemoryButtonState();
+        break;
+      case "MR":
+        calculator.memoryRecall();
+        break;
+      case "M+":
+        calculator.memoryAdd();
+        updateMemoryButtonState();
+        break;
+      case "M-":
+        calculator.memorySubtract();
+        updateMemoryButtonState();
+        break;
+      default:
+        break;
+    }
+  }
+
+  memoryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      handleMemoryButtonClick(button.textContent);
+      updateDisplay(calculator);
+    });
+  });
+
+  const powerButtons = document.querySelectorAll('[data-role="power"]');
+
+  function handlePowerButtonClick(power) {
+    switch (power) {
+      case "2":
+        calculator.square();
+        updateMemoryButtonState();
+        break;
+      case "3":
+        calculator.cube();
+        break;
+      case "y":
+        calculator.power();
+        updateMemoryButtonState();
+        break;
+      case "10":
+        calculator.tenPower();
+        updateMemoryButtonState();
+        break;
+      case "0.5":
+        calculator.squareRoot();
+        updateMemoryButtonState();
+        break;
+      case "1/3":
+        calculator.cubeRoot();
+        updateMemoryButtonState();
+        break;
+      default:
+        break;
+    }
+  }
+
+  powerButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const powerValue = button.dataset.power;
+      handlePowerButtonClick(powerValue);
+      updateDisplay(calculator);
+    });
+  });
 
   document.addEventListener("keydown", (event) => {
     switch (event.key) {

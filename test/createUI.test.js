@@ -32,7 +32,7 @@ describe("createCalculatorUI function", () => {
 
   test("correct number of buttons", () => {
     const buttons = calculatorGrid.querySelectorAll("button");
-    expect(buttons.length).toBe(20);
+    expect(buttons.length).toBe(33);
   });
 
   test("button text content", () => {

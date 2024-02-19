@@ -1,3 +1,5 @@
+import "@testing-library/jest-dom";
+
 import createCalculatorUI from "../src/UI/createUI";
 import setupEventHandlers from "../src/UI/eventHandler";
 import Calculator from "../src/Calculator/calculator";
@@ -140,5 +142,25 @@ describe("Calculator UI call update display", () => {
 
     expect(getDisplayValue()).toBe("9.9");
     expect(getPreviousValue()).toBe("");
+  });
+  test("clicking memory buttons calls the respective memory operation and updates button state", () => {
+    const memoryButtons = document.querySelectorAll("[data-role='memory']");
+    const mcButton = memoryButtons[0];
+    const mrButton = memoryButtons[1];
+    const mPlusButton = memoryButtons[2];
+    const mMinusButton = memoryButtons[3];
+
+    mcButton.click();
+    expect(calculator.memory).toBeNull();
+    expect(mcButton.disabled).toBe(true);
+    expect(mcButton).toHaveClass("disabled");
+
+    mPlusButton.click();
+    expect(mcButton.disabled).toBe(false);
+    expect(mcButton).not.toHaveClass("disabled");
+
+    mrButton.click();
+
+    mMinusButton.click();
   });
 });
